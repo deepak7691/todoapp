@@ -1,25 +1,77 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import Checkbox from "@mui/material/Checkbox";
+import Button from "@mui/material/Button";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-function App() {
+const App = () => {
+  const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState("");
+  const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
+  const addTask = () => {
+    if (newTask.trim() !== "") {
+      setTasks([...tasks, { text: newTask, completed: false }]);
+      setNewTask("");
+    }
+  };
+
+  const toggleTask = (index) => {
+    const updatedTasks = [...tasks];
+    updatedTasks[index].completed = !updatedTasks[index].completed;
+    setTasks(updatedTasks);
+  };
+
+  const deleteTask = (index) => {
+    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTasks);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+      <div className="add-task-form">
+        <input
+          className="inputText"
+          type="text"
+          value={newTask}
+          onChange={(e) => setNewTask(e.target.value)}
+          placeholder="Enter a new task"
+        />
+
+        {/* <button onClick={addTask}>Add Task</button> */}
+
+        <Button variant="contained" color="success" onClick={addTask} size="medium">
+          Add Task
+        </Button>
+      </div>
+      <ul className="task-list">
+        {tasks.map((task, index) => (
+          <li key={index}>
+            <Checkbox
+              checked={task.completed}
+              onChange={() => toggleTask(index)}
+              {...label}
+              defaultChecked
+              sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }}
+              color="success"
+            />
+
+            <span className="text">{task.text}</span>
+
+            <Button
+              variant="outlined"
+              startIcon={<DeleteIcon />}
+              onClick={() => deleteTask(index)}
+            >
+              Delete
+            </Button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
 
 export default App;
