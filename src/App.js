@@ -59,11 +59,11 @@ const App = () => {
               defaultChecked
               sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }}
               color="success"
-              className={task.completed ? "completed" : ""}
+              
             />
-
+            <div className={task.completed ? "completed" : ""}>
             <span className="text">{task.text}</span>
-
+            </div>
             <Button
               variant="outlined"
               startIcon={<DeleteIcon />}
