@@ -60,6 +60,7 @@ function DrawerAppBar(props) {
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
             <MenuIcon />
+            <h1 className='headerName'>TODO APP</h1>
           </IconButton>
           <Typography
             variant="h6"
@@ -84,7 +85,7 @@ function DrawerAppBar(props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true, 
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
@@ -100,10 +101,6 @@ function DrawerAppBar(props) {
 }
 
 DrawerAppBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };
 

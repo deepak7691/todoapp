@@ -40,9 +40,12 @@ const App = () => {
           placeholder="Enter a new task"
         />
 
-        {/* <button onClick={addTask}>Add Task</button> */}
-
-        <Button variant="contained" color="success" onClick={addTask} size="medium">
+        <Button
+          variant="contained"
+          color="success"
+          onClick={addTask}
+          size="medium"
+        >
           Add Task
         </Button>
       </div>
@@ -56,6 +59,7 @@ const App = () => {
               defaultChecked
               sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }}
               color="success"
+              className={task.completed ? "completed" : ""}
             />
 
             <span className="text">{task.text}</span>
@@ -64,6 +68,7 @@ const App = () => {
               variant="outlined"
               startIcon={<DeleteIcon />}
               onClick={() => deleteTask(index)}
+              className="dltbtn"
             >
               Delete
             </Button>
