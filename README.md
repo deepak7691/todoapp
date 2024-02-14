@@ -1,5 +1,16 @@
 # Getting Started with Create React App
 
+# React Todo List App
+
+A simple and intuitive Todo list application built with React and enhanced with Material-UI components.
+
+## Features
+
+- **Add Tasks:** Easily add new tasks to the list.
+- **Toggle Completion:** Mark tasks as completed by clicking the checkbox.
+- **Delete Tasks:** Remove tasks from the list with a single click.
+- **Material-UI Integration:** Utilizes Material-UI components for a modern and responsive user interface.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -68,3 +79,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
